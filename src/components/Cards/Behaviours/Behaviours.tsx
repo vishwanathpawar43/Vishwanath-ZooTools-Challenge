@@ -1,17 +1,16 @@
 import React, { useState } from "react";
 import Paper from "@mui/material/Paper";
-import Typography from "@mui/material/Typography";
 import { Box, Button } from "@mui/material";
 
-const Behaviours: React.FC = () => {
-  const [selectedButton, setSelectedButton] = useState("browser");
+const Behaviour: React.FC = () => {
+  const [selectedButton, setSelectedButton] = useState("country");
 
   const trafficData = [
-    { browser: "United States", invites: 50, decides: "New York" },
-    { browser: "India", invites: 25, decides: "Mumbai" },
-    { browser: "Brazil", invites: 10, decides: "Chicago" },
-    { browser: "Germany", invites: 10, decides: "San Fancisco" }, // Add more data as needed
-    { browser: "Other", invites: 5, decides: "Denver" },
+    { country: "United States", invites: 50, city: "New York" },
+    { country: "India", invites: 25, city: "Mumbai" },
+    { country: "Brazil", invites: 10, city: "Chicago" },
+    { country: "Germany", invites: 10, city: "San Fancisco" }, // Add more data as needed
+    { country: "Other", invites: 5, city: "Other" },
   ];
 
   const totalInvites = trafficData.reduce(
@@ -22,119 +21,103 @@ const Behaviours: React.FC = () => {
   return (
     <Paper
       sx={{
-        width: "85vmin",
-        height: "60vmin",
-        marginBottom: "3.5rem",
-        padding: "1rem",
         boxShadow: "4px 4px 8px rgba(0, 0, 0, 0.1)",
-        borderTop: "0.2rem solid rgba(248, 248, 248, 0.3)",
-        borderLeft: "0.4rem solid rgba(248, 248, 248, 0.3)",
-        // Center the Paper on small viewport
+        borderRadius: "0.5rem",
       }}
       elevation={0}
+      className="w-[85vmin]  mb-14 p-4 border-t-[0.2rem] border-opacity-30 border-gray-100 border-l-[0.4rem]"
     >
-      <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-        <Typography variant="h6" component="div" sx={{ padding: "1rem" }}>
-          Behaviours
-        </Typography>
+      <Box className="flex justify-between">
+        <Box className="p-4">
+          <h1 className="text-2xl font-[800] tracking-tight">Behaviour</h1>
+        </Box>
 
-        <Box sx={{ padding: "1rem" }}>
+        <Box className="p-4">
           <Button
             variant="text"
             sx={{
               backgroundColor:
-                selectedButton === "browser" ? "#E8E8E8" : "white",
+                selectedButton === "country" ? "#E8E8E8" : "white",
               borderRadius: "0.5rem",
-              color: "#808080",
+              color: "#484848",
               marginLeft: "0.8rem",
             }}
-            onClick={() => setSelectedButton("browser")}
+            onClick={() => setSelectedButton("country")}
           >
-            <Typography
-              variant="subtitle2"
-              component="div"
-              sx={{ textTransform: "none" }}
-            >
-              Browser
-            </Typography>
+            <Box>
+              <p className="text-lg font-[700] normal-case tracking-tight">
+                Browsers
+              </p>
+            </Box>
           </Button>
           <Button
             variant="text"
             sx={{
-              backgroundColor:
-                selectedButton === "decides" ? "#E8E8E8" : "white",
+              backgroundColor: selectedButton === "city" ? "#E8E8E8" : "white",
               borderRadius: "0.5rem",
-              color: "#808080",
+              color: "#484848",
               marginLeft: "0.8rem",
             }}
-            onClick={() => setSelectedButton("decides")}
+            onClick={() => setSelectedButton("city")}
           >
-            <Typography
-              variant="subtitle2"
-              component="div"
-              sx={{ textTransform: "none" }}
-            >
-              Decides
-            </Typography>
+            <Box>
+              <p className="text-lg font-[700] normal-case tracking-tight">
+                Decides
+              </p>
+            </Box>
           </Button>
         </Box>
       </Box>
 
-      {trafficData.map((row, index) => (
-        <Box
-          key={index}
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            marginBottom: "1rem",
-            marginLeft: "1rem",
-            background: `linear-gradient(to right, rgba(255, 215, 0,0.3) ${
-              totalInvites > 0 ? (row.invites / totalInvites) * 100 : 0
-            }%, rgba(0, 0, 0, 0) ${
-              totalInvites > 0 ? (row.invites / totalInvites) * 100 : 0
-            }%)`,
-            borderRadius: "0.5rem",
-          }}
-        >
-          <Typography
-            variant="body1"
-            component="div"
-            sx={{ padding: "0.5rem", marginLeft: "1rem" }}
-          >
-            {selectedButton === "browser" ? row.browser : row.decides}
-          </Typography>
-          <Typography
-            variant="body1"
-            component="div"
-            sx={{ padding: "0.5rem", marginRight: "2rem" }}
-          >
-            {row.invites}
-          </Typography>
-        </Box>
-      ))}
+      {trafficData.map((row, index) => {
+        if (index < 5) {
+          return (
+            <Box
+              key={index}
+              sx={{
+                background: `linear-gradient(to right, rgba(255, 215, 0,0.3) ${
+                  totalInvites > 0 ? (row.invites / totalInvites) * 100 : 0
+                }%, rgba(0, 0, 0, 0) ${
+                  totalInvites > 0 ? (row.invites / totalInvites) * 100 : 0
+                }%)`,
+              }}
+              className="mb-4 ml-4 flex justify-between rounded-lg"
+            >
+              <Box className="ml-4 p-2">
+                <h1 className="text-xl font-[500]">
+                  {selectedButton === "country" ? row.country : row.city}
+                </h1>
+              </Box>
+
+              <Box className="mr-8 p-2">
+                <h1 className="text-xl font-[500]">{row.invites}</h1>
+              </Box>
+            </Box>
+          );
+        }
+      })}
 
       <Button
         variant="text"
         sx={{
           backgroundColor: "#E8E8E8",
           borderRadius: "0.5rem",
-          color: "#808080",
+          color: "#484848",
           marginLeft: "0.8rem",
           marginTop: "0.5rem",
+          marginBottom: "0.5rem",
           width: "10rem",
           height: "2.5rem",
         }}
       >
-        <Typography
-          variant="subtitle2"
-          component="div"
-          sx={{ textTransform: "none" }}
-        >
-          See all countries
-        </Typography>
+        <Box>
+          <p className="text-base font-[700] normal-case tracking-tight">
+            See all countries
+          </p>
+        </Box>
       </Button>
     </Paper>
   );
 };
 
-export default Behaviours;
+export default Behaviour;

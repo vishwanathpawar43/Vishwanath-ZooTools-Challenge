@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Paper from "@mui/material/Paper";
-import Typography from "@mui/material/Typography";
 import { Box, Button } from "@mui/material";
 
 const Traffic: React.FC = () => {
@@ -11,7 +10,7 @@ const Traffic: React.FC = () => {
     { source: "Twitter", entries: 25, city: "Mumbai" },
     { source: "Facebook", entries: 10, city: "Chicago" },
     { source: "LinkedIn", entries: 10, city: "San Fancisco" },
-    { source: "Other", entries: 5, city: "Denver" },
+    { source: "Other", entries: 5, city: "Other" },
   ];
 
   const totalEntries = trafficData.reduce(
@@ -22,116 +21,101 @@ const Traffic: React.FC = () => {
   return (
     <Paper
       sx={{
-        width: "85vmin",
-        height: "60vmin",
-        marginBottom: "3.5rem",
-        padding: "1rem",
         boxShadow: "4px 4px 8px rgba(0, 0, 0, 0.1)",
-        borderTop: "0.2rem solid rgba(248, 248, 248, 0.3)",
-        borderLeft: "0.4rem solid rgba(248, 248, 248, 0.3)",
-        // Center the Paper on small viewport
+        borderRadius: "0.5rem",
       }}
       elevation={0}
+      className="w-[85vmin] mb-14 p-4 border-t-[0.2rem] border-opacity-30 border-gray-100 border-l-[0.4rem]"
     >
-      <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-        <Typography variant="h6" component="div" sx={{ padding: "1rem" }}>
-          Traffic
-        </Typography>
+      <Box className="flex justify-between">
+        <Box className="p-4">
+          <h1 className="text-2xl font-[800] tracking-tight">Traffic</h1>
+        </Box>
 
-        <Box sx={{ padding: "1rem" }}>
+        <Box className="p-4">
           <Button
             variant="text"
             sx={{
               backgroundColor:
                 selectedButton === "sources" ? "#E8E8E8" : "white",
               borderRadius: "0.5rem",
-              color: "#808080",
+              color: "#484848",
               marginLeft: "0.8rem",
             }}
             onClick={() => setSelectedButton("sources")}
           >
-            <Typography
-              variant="subtitle2"
-              component="div"
-              sx={{ textTransform: "none" }}
-            >
-              Sources
-            </Typography>
+            <Box>
+              <p className="text-lg font-[700] normal-case tracking-tight">
+                Sources
+              </p>
+            </Box>
           </Button>
+
           <Button
             variant="text"
             sx={{
               backgroundColor: selectedButton === "city" ? "#E8E8E8" : "white",
               borderRadius: "0.5rem",
-              color: "#808080",
+              color: "#484848",
               marginLeft: "0.8rem",
             }}
             onClick={() => setSelectedButton("city")}
           >
-            <Typography
-              variant="subtitle2"
-              component="div"
-              sx={{ textTransform: "none" }}
-            >
-              City
-            </Typography>
+            <Box>
+              <p className="text-lg font-[700] normal-case tracking-tight">
+                City
+              </p>
+            </Box>
           </Button>
         </Box>
       </Box>
 
-      {trafficData.map((row, index) => (
-        <Box
-          key={index}
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            // bgcolor: "blue",
-            marginBottom: "1rem",
-            marginLeft: "1rem",
-            background: `linear-gradient(to right, rgba(255, 215, 0,0.3) ${
-              totalEntries > 0 ? (row.entries / totalEntries) * 100 : 0
-            }%, rgba(0, 0, 0, 0) ${
-              totalEntries > 0 ? (row.entries / totalEntries) * 100 : 0
-            }%)`,
-            borderRadius: "0.5rem",
-          }}
-        >
-          <Typography
-            variant="body1"
-            component="div"
-            sx={{ padding: "0.5rem", marginLeft: "1rem" }}
-          >
-            {selectedButton === "sources" ? row.source : row.city}
-          </Typography>
-          <Typography
-            variant="body1"
-            component="div"
-            sx={{ padding: "0.5rem", marginRight: "2rem" }}
-          >
-            {row.entries}
-          </Typography>
-        </Box>
-      ))}
+      {trafficData.map((row, index) => {
+        if (index < 5) {
+          return (
+            <Box
+              key={index}
+              sx={{
+                background: `linear-gradient(to right, rgba(255, 215, 0,0.3) ${
+                  totalEntries > 0 ? (row.entries / totalEntries) * 100 : 0
+                }%, rgba(0, 0, 0, 0) ${
+                  totalEntries > 0 ? (row.entries / totalEntries) * 100 : 0
+                }%)`,
+              }}
+              className="mb-4 ml-4 flex justify-between rounded-lg"
+            >
+              <Box className="ml-4 p-2">
+                <h1 className="text-xl font-[500]">
+                  {selectedButton === "sources" ? row.source : row.city}
+                </h1>
+              </Box>
+
+              <Box className="mr-8 p-2">
+                <h1 className="text-xl font-[500]">{row.entries}</h1>
+              </Box>
+            </Box>
+          );
+        }
+      })}
 
       <Button
         variant="text"
         sx={{
           backgroundColor: "#E8E8E8",
           borderRadius: "0.5rem",
-          color: "#808080",
+          color: "#484848",
           marginLeft: "0.8rem",
           marginTop: "0.5rem",
+          marginBottom: "0.5rem",
           width: "10rem",
           height: "2.5rem",
         }}
       >
-        <Typography
-          variant="subtitle2"
-          component="div"
-          sx={{ textTransform: "none" }}
-        >
-          See traffic sources
-        </Typography>
+        <Box>
+          <p className="text-base font-[700] normal-case tracking-tight">
+            See traffic sources
+          </p>
+        </Box>
       </Button>
     </Paper>
   );

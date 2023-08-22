@@ -48,7 +48,7 @@ const generateRandomData = () => {
   const email = "user" + getRandomInt(1, 100) + "@example.com";
   const country = countries[getRandomInt(0, countries.length - 1)];
   const city = cities[getRandomInt(0, cities.length - 1)];
-  const date = getRandomDate(new Date(2023, 8, 1), new Date());
+  const date = getRandomDate(new Date(2023, 7, 22), new Date());
   const source = [
     "Google",
     "Twitter",
@@ -65,14 +65,13 @@ const generateRandomData = () => {
 };
 
 // Generate an array of random data
-const numberOfDataPoints = 100;
+const numberOfDataPoints = 5;
 const Data: dataType[] = Array.from(
   { length: numberOfDataPoints },
   generateRandomData
 );
 
 export default Data;
-
 
 // interface sourceEntry {
 //   [source: string]: number;

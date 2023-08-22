@@ -8,84 +8,23 @@ import Leaderboard from "./components/Cards/LeaderBoard/LeaderBoard";
 import Traffic from "./components/Cards/Traffic/Traffic";
 import SignUpLocation from "./components/Cards/SignUpLocation/SignUpLocation";
 import Behaviours from "./components/Cards/Behaviours/Behaviours";
-// import Data from "./Data/Data";
+import Temp from "./components/temp";
 
 const App: React.FC = () => {
-//   console.log(Data);
   return (
     <Fragment>
       <CssBaseline />
       <Container maxWidth="xl">
-        <Box
-          sx={{
-            // bgcolor: "#F0F8FF",//alice blue
-            bgcolor: "#F5FEFD", // snow
-            width: "100%",
-            margin: "auto",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-            paddingX: "5rem",
-            paddingY: "3rem",
-            borderRadius: "0.75rem",
-          }}
-        >
-          {/* SignUpgraph */}
+        <Box className="bg-[#F5FEFD] w-full m-auto flex flex-col justify-between px-20 py-12 rounded-xl">
           <SignUpGraph />
-
-          {/* Insights */}
           <Insights />
-
-          <Box
-            sx={{
-              width: "100%",
-              margin: "auto",
-              display: "flex",
-              flexWrap: "wrap",
-              justifyContent: "space-between",
-              alignItems: "center",
-              borderRadius: "0.75rem",
-            }}
-          >
-            {/* LeaderBoard */}
+          <Box className="w-full m-auto flex flex-wrap justify-between items-center rounded-xl">
             <Leaderboard />
-
-            {/* Traffic */}
             <Traffic />
-
-            {/* SignUp Loacation */}
             <SignUpLocation />
-
-            {/* Behaviours */}
             <Behaviours />
-
-            {/* <Paper
-              sx={{
-                width: "85vmin",
-                height: "50vmin",
-                boxShadow: "4px 4px 8px rgba(0, 0, 0, 0.1)",
-                borderTop: "0.2rem solid rgba(248, 248, 248, 0.3)",
-                borderLeft: "0.4rem solid rgba(248, 248, 248, 0.3)",
-              }}
-              elevation={0}
-            >
-              <h1>5</h1>
-            </Paper>
-
-            <Paper
-              sx={{
-                width: "85vmin",
-                height: "50vmin",
-
-                boxShadow: "4px 4px 8px rgba(0, 0, 0, 0.1)",
-                borderTop: "0.2rem solid rgba(248, 248, 248, 0.3)",
-                borderLeft: "0.4rem solid rgba(248, 248, 248, 0.3)",
-              }}
-              elevation={0}
-            >
-              <h1>6</h1>
-            </Paper> */}
           </Box>
+          <Temp />
         </Box>
       </Container>
     </Fragment>

@@ -1,8 +1,9 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { BarChart, Bar, Tooltip, ResponsiveContainer, Label } from "recharts";
 import "./SignUpGraph.css";
-import { Box, Button, Paper, Stack, Typography } from "@mui/material";
+import { Box, Button, Paper, Stack } from "@mui/material";
 import PeopleOutlineIcon from "@mui/icons-material/PeopleOutline";
+import Data from "../../Data/Data";
 
 const data = [
   { day: 1, value: 2 },
@@ -65,6 +66,7 @@ const CustomTooltip: React.FC<CustomTooltipProps> = ({
 };
 
 const SignUpGraph = () => {
+  console.log(Data);
   const [position, setPosition] = useState<{
     data: any;
     show: boolean;
@@ -91,35 +93,24 @@ const SignUpGraph = () => {
 
   return (
     <Fragment>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          marginBottom: "3rem",
-          // border:"1px solid red"
-        }}
-      >
-        <Typography variant="h4" component="div" className="pt-4">
-          Summer referral competition
-        </Typography>
+      <Box className="flex justify-between mb-12">
+        <Box className="pt-2">
+          <h1 className="text-3xl font-[800] tracking-tight">
+            Summer referral competition
+          </h1>
+        </Box>
+
         <Paper
           sx={{
             boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.2)",
-            borderTop: "0.4rem solid rgba(248, 248, 248, 0.3)",
-            borderLeft: "0.4rem solid rgba(248, 248, 248, 0.3)",
-            borderRight: "0.4rem solid rgba(248, 248, 248, 0.3)",
-            borderBottom: "0.4rem solid rgba(248, 248, 248, 0)",
-            borderRadius: "0.5rem",
-            display: "flex",
-            alignItems: "center",
-            paddingY: "0.2rem",
-            paddingX: "0.3rem",
           }}
+          className="flex items-center py-[0.2rem] px-[0.3rem] rounded-lg border-r-[0.4rem] border-t-[0.2rem] border-opacity-30 border-gray-100 border-l-[0.4rem]"
           elevation={0}
         >
-          <Stack spacing={1.5} direction="row">
+          <Stack spacing={1} direction="row" className="my-[0.2rem]">
             <Button
               variant="text"
+              size="small"
               sx={{
                 backgroundColor: "#F8F8FF",
                 borderRadius: "0.75rem",
@@ -127,64 +118,51 @@ const SignUpGraph = () => {
                 color: "#808080",
               }}
             >
-              <Typography
-                variant="h6"
-                component="div"
-                sx={{ textTransform: "none" }}
-              >
-                1h
-              </Typography>
+              <Box>
+                <p className="text-lg font-[700] normal-case">1h</p>
+              </Box>
             </Button>
 
             <Button
               variant="text"
+              size="small"
               sx={{
                 backgroundColor: "#F8F8FF",
                 borderRadius: "0.75rem",
                 color: "#808080",
               }}
             >
-              <Typography
-                variant="h6"
-                component="div"
-                sx={{ textTransform: "none" }}
-              >
-                24h
-              </Typography>
+              <Box>
+                <p className="text-lg font-[700] normal-case ">24h</p>
+              </Box>
             </Button>
 
             <Button
               variant="text"
+              size="small"
               sx={{
                 backgroundColor: "#F8F8FF",
                 borderRadius: "0.75rem",
                 color: "#808080",
               }}
             >
-              <Typography
-                variant="h6"
-                component="div"
-                sx={{ textTransform: "none" }}
-              >
-                30d
-              </Typography>
+              <Box>
+                <p className="text-lg font-[700] normal-case">30d</p>
+              </Box>
             </Button>
 
             <Button
               variant="text"
+              size="small"
               sx={{
                 backgroundColor: "#F8F8FF",
                 borderRadius: "0.75rem",
                 color: "#808080",
               }}
             >
-              <Typography
-                variant="h6"
-                component="div"
-                sx={{ textTransform: "none" }}
-              >
-                60d
-              </Typography>
+              <Box>
+                <p className="text-lg font-[700] normal-case ">60d</p>
+              </Box>
             </Button>
           </Stack>
         </Paper>
@@ -192,44 +170,31 @@ const SignUpGraph = () => {
 
       <Paper
         sx={{
-          width: "100%",
-          marginBottom: "3rem",
-          padding: "2rem",
           boxShadow: "4px 4px 8px rgba(0, 0, 0, 0.1)",
-          borderTop: "0.2rem solid rgba(248, 248, 248, 0.3)",
-          borderLeft: "0.4rem solid rgba(248, 248, 248, 0.3)",
         }}
+        className="w-full mb-12 p-8 border-t-[0.2rem] border-opacity-30 border-gray-100 border-l-[0.4rem]"
         elevation={0}
       >
         <Box>
-          <Typography
-            variant="h4"
-            component="div"
-            display="flex"
-            alignItems="center"
-          >
-            <span>100,000</span>
+          <Box className="flex items-center ">
+            <h1 className="text-3xl font-[800]">100,000</h1>
             <PeopleOutlineIcon
               sx={{
-                fontSize: 40,
+                fontSize: 35,
                 marginLeft: "0.5rem",
-                marginBottom: "0.2rem",
+                marginBottom: "0.1rem",
               }}
             />
-          </Typography>
+          </Box>
 
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ marginLeft: "0.5rem" }}
-          >
-            Participants
-          </Typography>
+          <Box>
+            <p className="text-2xl font-[600]">Participants</p>
+          </Box>
         </Box>
         <Box
           sx={{
             backgroundImage:
-              "linear-gradient(to top, rgba(245, 245, 245, 0.6) 2px, transparent 1px)",
+              "linear-gradient(to top, rgba(245, 245, 245, 0.5) 2px, transparent 1px)",
             backgroundSize: "80% 2.5rem",
             backgroundPosition: "center bottom",
           }}

@@ -1,42 +1,33 @@
 import React from "react";
 import Paper from "@mui/material/Paper";
-import {
-  Avatar,
-  List,
-  ListItem,
-  ListItemAvatar,
-  ListItemText,
-  Typography,
-} from "@mui/material";
+import { Avatar, Box, List, ListItem, ListItemAvatar } from "@mui/material";
 import FolderIcon from "@mui/icons-material/Folder";
 
 const Insights: React.FC = () => {
   return (
     <Paper
       sx={{
-        width: "100%",
-        // height: "40vh",
-        marginBottom: "5rem",
         boxShadow: "4px 4px 8px rgba(0, 0, 0, 0.1)",
-        borderTop: "0.2rem solid rgba(248, 248, 248, 0.3)",
-        borderLeft: "0.4rem solid rgba(248, 248, 248, 0.3)",
-        padding: "2rem",
       }}
       elevation={0}
+      className="w-full mb-20 p-8 border-t-[0.2rem] border-opacity-30 border-gray-100 border-l-[0.4rem]"
     >
-      <div>
-        <Typography variant="h3" component="div">
-          Zootools Insights
-        </Typography>
-        <Typography sx={{ mb: 4 }} variant="h6" component="div">
-          Making Analytics Easy
-        </Typography>
+      <Box>
+        <Box className="mb-6">
+          <h1 className="text-5xl font-[700] tracking-tight">
+            Zootools insights
+          </h1>
+          <p className="text-2xl font-[500] mt-1">
+            Making analytics simple and actionable
+          </p>
+        </Box>
 
-        <div className="flex">
-          <div className="w-1/2 pr-4">
-            <Typography variant="h6" component="div">
-              Summary
-            </Typography>
+        <Box className="flex mb-8">
+          <Box className="w-1/2 pr-4">
+            <Box>
+              <p className="text-2xl font-[700] tracking-tight">Summary</p>
+            </Box>
+
             <List sx={{ marginLeft: "-1rem" }}>
               <ListItem>
                 <ListItemAvatar>
@@ -44,7 +35,12 @@ const Insights: React.FC = () => {
                     <FolderIcon />
                   </Avatar>
                 </ListItemAvatar>
-                <ListItemText primary="Overview of website traffic" />
+                <p className="text-base font-[700] tracking-tight">
+                  SignUps are slowing down.&nbsp;
+                </p>
+                <p className="text-base font-[400] tracking-tight">
+                  -5% new than last week
+                </p>
               </ListItem>
 
               <ListItem>
@@ -53,7 +49,10 @@ const Insights: React.FC = () => {
                     <FolderIcon />
                   </Avatar>
                 </ListItemAvatar>
-                <ListItemText primary="Overview of website traffic" />
+                <p className="text-base font-[700] tracking-tight">80%&nbsp;</p>
+                <p className="text-base font-[400] tracking-tight">
+                  of signups were invited by members
+                </p>
               </ListItem>
 
               <ListItem>
@@ -62,31 +61,37 @@ const Insights: React.FC = () => {
                     <FolderIcon />
                   </Avatar>
                 </ListItemAvatar>
-                <ListItemText primary="Overview of website traffic" />
+                <p className="text-base font-[700] tracking-tight">80%&nbsp;</p>
+                <p className="text-base font-[400] tracking-tight">
+                  of signups were invited by friends
+                </p>
               </ListItem>
             </List>
-          </div>
+          </Box>
 
-          <div className="w-1/2 pl-4">
-            <Typography variant="h6" component="div">
-              Recommedations
-            </Typography>
+          <Box className="w-1/2 ml-16">
+            <Box>
+              <p className="text-2xl font-[700] tracking-tight">
+                Recommedations
+              </p>
+            </Box>
+
             <List sx={{ marginLeft: "-1rem" }}>
               <ListItem>
-                <ListItemText primary="Overview of website traffic" />
+                <p className="text-base font-[700] tracking-tight">
+                  Make sure you promote and share your form
+                </p>
               </ListItem>
 
               <ListItem>
-                <ListItemText primary="Overview of website traffic" />
-              </ListItem>
-
-              <ListItem>
-                <ListItemText primary="Overview of website traffic" />
+                <p className="text-base font-[700] tracking-tight">
+                  Congrats! This is huge. Keep rewards your users
+                </p>
               </ListItem>
             </List>
-          </div>
-        </div>
-      </div>
+          </Box>
+        </Box>
+      </Box>
     </Paper>
   );
 };
