@@ -41,6 +41,9 @@ const Traffic: React.FC = () => {
               borderRadius: "0.5rem",
               color: "#484848",
               marginLeft: "0.8rem",
+              "&:focus": {
+                backgroundColor: "#E8E8E8", 
+              },
             }}
             onClick={() => setSelectedButton("sources")}
           >
@@ -58,6 +61,9 @@ const Traffic: React.FC = () => {
               borderRadius: "0.5rem",
               color: "#484848",
               marginLeft: "0.8rem",
+              "&:focus": {
+                backgroundColor: "#E8E8E8", 
+              },
             }}
             onClick={() => setSelectedButton("city")}
           >
@@ -109,6 +115,9 @@ const Traffic: React.FC = () => {
           marginBottom: "1rem",
           width: "10rem",
           height: "2.5rem",
+          "&:focus": {
+            backgroundColor: "#E8E8E8", 
+          },
         }}
       >
         <Box>

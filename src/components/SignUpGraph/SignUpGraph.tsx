@@ -128,6 +128,9 @@ const SignUpGraph: React.FC = () => {
                 "&:hover": {
                   backgroundColor: "#E8E8E8",
                 },
+                "&:focus": {
+                  backgroundColor: "#D3D3D3",
+                },
               }}
               onClick={() => handleClick(1, "h")}
             >
@@ -146,6 +149,9 @@ const SignUpGraph: React.FC = () => {
                 color: "#696969",
                 "&:hover": {
                   backgroundColor: "#E8E8E8",
+                },
+                "&:focus": {
+                  backgroundColor: "#D3D3D3",
                 },
               }}
               onClick={() => handleClick(24, "h")}
@@ -166,6 +172,9 @@ const SignUpGraph: React.FC = () => {
                 "&:hover": {
                   backgroundColor: "#E8E8E8",
                 },
+                "&:focus": {
+                  backgroundColor: "#D3D3D3",
+                },
               }}
               onClick={() => handleClick(30, "d")}
             >
@@ -184,6 +193,9 @@ const SignUpGraph: React.FC = () => {
                 color: "#696969",
                 "&:hover": {
                   backgroundColor: "#E8E8E8",
+                },
+                "&:focus": {
+                  backgroundColor: "#D3D3D3",
                 },
               }}
               onClick={() => handleClick(60, "d")}

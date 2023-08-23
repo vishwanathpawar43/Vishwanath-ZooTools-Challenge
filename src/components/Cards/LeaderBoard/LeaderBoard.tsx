@@ -25,31 +25,31 @@ const Leaderboard: React.FC = () => {
       </Box>
 
       <Box className="mb-2 ml-4 flex rounded-lg">
-        <Box className="w-1/2 p-2">
+        <Box className="w-full md:w-1/2 p-2">
           <h1 className="text-lg font-[700]">Email</h1>
         </Box>
 
-        <Box className="w-1/4 p-2">
+        <Box className="w-full md:w-1/4 p-2">
           <h1 className="text-lg font-[700]">Invites</h1>
         </Box>
 
-        <Box className="w-1/4 mr-8 p-2">
+        <Box className="w-full md:w-1/4 p-2">
           <h1 className="text-lg font-[700]">Country</h1>
         </Box>
       </Box>
       {leaderboardData.map((row, index) => {
         if (index < 5) {
           return (
-            <Box key={index} className="mb-2 ml-4 flex rounded-lg">
-              <Box className="w-1/2 p-2">
+            <Box key={index} className="mb-2 ml-4 flex flex-wrap rounded-lg">
+              <Box className="w-full md:w-1/2 p-2">
                 <h1 className="text-lg font-[500]">{row.email}</h1>
               </Box>
 
-              <Box className="w-1/4 p-2">
+              <Box className="w-full md:w-1/4 p-2">
                 <h1 className="text-lg font-[500]">{row.invites}</h1>
               </Box>
 
-              <Box className="w-1/4 mr-8 p-2">
+              <Box className="w-full md:w-1/4 p-2">
                 <h1 className="text-lg font-[500]">{row.country}</h1>
               </Box>
             </Box>
@@ -68,6 +68,9 @@ const Leaderboard: React.FC = () => {
           marginBottom: "1rem",
           width: "10rem",
           height: "2.5rem",
+          "&:focus": {
+            backgroundColor: "#E8E8E8", 
+          },
         }}
       >
         <Box>
