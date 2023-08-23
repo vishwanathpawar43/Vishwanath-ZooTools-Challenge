@@ -1,7 +1,8 @@
 import React from "react";
 import Paper from "@mui/material/Paper";
-import { Avatar, Box, List, ListItem, ListItemAvatar } from "@mui/material";
-import FolderIcon from "@mui/icons-material/Folder";
+import { Box, List, ListItem } from "@mui/material";
+import { HiOutlineLightBulb } from "react-icons/hi";
+import { MdArrowDropDown, MdArrowDropUp } from "react-icons/md";
 
 const Insights: React.FC = () => {
   return (
@@ -22,54 +23,58 @@ const Insights: React.FC = () => {
           </p>
         </Box>
 
-        <Box className="flex mb-8">
-          <Box className="w-1/2 pr-4">
+        <Box className="flex flex-col mb-8 md:flex-row">
+          <Box className="w-full md:w-1/2 md:pr-4">
             <Box>
               <p className="text-2xl font-[700] tracking-tight">Summary</p>
             </Box>
 
             <List sx={{ marginLeft: "-1rem" }}>
               <ListItem>
-                <ListItemAvatar>
-                  <Avatar>
-                    <FolderIcon />
-                  </Avatar>
-                </ListItemAvatar>
-                <p className="text-base font-[700] tracking-tight">
-                  SignUps are slowing down.&nbsp;
-                </p>
-                <p className="text-base font-[400] tracking-tight">
-                  -5% new than last week
+                <MdArrowDropDown className="bg-[#FF6347] text-[2.5rem] rounded-lg mr-4 p-2 text-white" />
+
+                <p className="text-base tracking-tight">
+                  <span className="font-[700]">
+                    SignUps are slowing down.&nbsp;
+                  </span>
+                  <span className="font-[400]">-5% new than last week</span>
                 </p>
               </ListItem>
 
               <ListItem>
-                <ListItemAvatar>
-                  <Avatar>
-                    <FolderIcon />
-                  </Avatar>
-                </ListItemAvatar>
-                <p className="text-base font-[700] tracking-tight">80%&nbsp;</p>
-                <p className="text-base font-[400] tracking-tight">
-                  of signups were invited by members
+                <MdArrowDropUp className="bg-[#4AFF00] text-[2.5rem] rounded-lg mr-4 p-2 text-white" />
+
+                <p className="text-base tracking-tight">
+                  <span className="font-[700]">80%&nbsp;</span>
+                  <span className="font-[400]">
+                    of signups were invited by members
+                  </span>
                 </p>
               </ListItem>
 
               <ListItem>
-                <ListItemAvatar>
-                  <Avatar>
-                    <FolderIcon />
-                  </Avatar>
-                </ListItemAvatar>
-                <p className="text-base font-[700] tracking-tight">80%&nbsp;</p>
-                <p className="text-base font-[400] tracking-tight">
-                  of signups were invited by friends
+                <HiOutlineLightBulb className="bg-yellow-300 text-[2.5rem] rounded-lg mr-4 p-2" />
+                <p className="text-base tracking-tight">
+                  <span className="font-[700]">80%&nbsp;</span>
+                  <span className="font-[400]">
+                    of signups were invited by friends
+                  </span>
+                </p>
+              </ListItem>
+
+              <ListItem>
+                <HiOutlineLightBulb className="bg-yellow-300 text-[2.5rem] rounded-lg mr-4 p-2" />
+                <p className="text-base tracking-tight">
+                  <span className="font-[700]">80%&nbsp;</span>
+                  <span className="font-[400]">
+                    of signups were invited by friends
+                  </span>
                 </p>
               </ListItem>
             </List>
           </Box>
 
-          <Box className="w-1/2 ml-16">
+          <Box className="w-full mt-10 md:mt-0 md:w-1/2 md:ml-16">
             <Box>
               <p className="text-2xl font-[700] tracking-tight">
                 Recommedations

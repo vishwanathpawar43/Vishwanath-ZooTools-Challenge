@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Paper from "@mui/material/Paper";
 import { Box, Button } from "@mui/material";
+import { getCode } from "country-list";
+import "/node_modules/flag-icons/css/flag-icons.min.css";
 
 const SignUpLocation: React.FC = () => {
   const [selectedButton, setSelectedButton] = useState("country");
@@ -9,7 +11,7 @@ const SignUpLocation: React.FC = () => {
     { country: "United States", invites: 50, city: "New York" },
     { country: "India", invites: 25, city: "Mumbai" },
     { country: "Brazil", invites: 10, city: "Chicago" },
-    { country: "Germany", invites: 10, city: "San Fancisco" }, // Add more data as needed
+    { country: "Germany", invites: 10, city: "San Fancisco" },
     { country: "Other", invites: 5, city: "Other" },
   ];
 
@@ -25,7 +27,7 @@ const SignUpLocation: React.FC = () => {
         borderRadius: "0.5rem",
       }}
       elevation={0}
-      className="w-[85vmin]  mb-14 p-4 border-t-[0.2rem] border-opacity-30 border-gray-100 border-l-[0.4rem]"
+      className="w-full md0:w-[75vw] lg1:w-[41vw] lg1:h-[65vh] xl:h-auto mb-14 p-4 border-t-[0.2rem] border-opacity-30 border-gray-100 border-l-[0.4rem]"
     >
       <Box className="flex justify-between">
         <Box className="p-4">
@@ -77,7 +79,7 @@ const SignUpLocation: React.FC = () => {
             <Box
               key={index}
               sx={{
-                background: `linear-gradient(to right, rgba(255, 215, 0,0.3) ${
+                background: `linear-gradient(to right, rgba(255, 215, 0,0.25) ${
                   totalInvites > 0 ? (row.invites / totalInvites) * 100 : 0
                 }%, rgba(0, 0, 0, 0) ${
                   totalInvites > 0 ? (row.invites / totalInvites) * 100 : 0
@@ -87,7 +89,22 @@ const SignUpLocation: React.FC = () => {
             >
               <Box className="ml-4 p-2">
                 <h1 className="text-xl font-[500]">
-                  {selectedButton === "country" ? row.country : row.city}
+                  {selectedButton === "country" ? (
+                    <p>
+                      <span
+                        className={`fi fi-${getCode(
+                          `${
+                            row.country === "United States"
+                              ? "United States of America"
+                              : row.country
+                          }`
+                        )?.toLowerCase()} mr-3`}
+                      ></span>
+                      {row.country}
+                    </p>
+                  ) : (
+                    row.city
+                  )}
                 </h1>
               </Box>
 
@@ -107,7 +124,7 @@ const SignUpLocation: React.FC = () => {
           color: "#484848",
           marginLeft: "0.8rem",
           marginTop: "0.5rem",
-          marginBottom: "0.5rem",
+          marginBottom: "1rem",
           width: "10rem",
           height: "2.5rem",
         }}

@@ -25,7 +25,7 @@ const Traffic: React.FC = () => {
         borderRadius: "0.5rem",
       }}
       elevation={0}
-      className="w-[85vmin] mb-14 p-4 border-t-[0.2rem] border-opacity-30 border-gray-100 border-l-[0.4rem]"
+      className="w-full md0:w-[75vw] lg1:w-[41vw] lg1:h-[65vh] xl:h-auto mb-14 p-4 border-t-[0.2rem] border-opacity-30 border-gray-100 border-l-[0.4rem]"
     >
       <Box className="flex justify-between">
         <Box className="p-4">
@@ -76,7 +76,7 @@ const Traffic: React.FC = () => {
             <Box
               key={index}
               sx={{
-                background: `linear-gradient(to right, rgba(255, 215, 0,0.3) ${
+                background: `linear-gradient(to right, rgba(255, 215, 0,0.25) ${
                   totalEntries > 0 ? (row.entries / totalEntries) * 100 : 0
                 }%, rgba(0, 0, 0, 0) ${
                   totalEntries > 0 ? (row.entries / totalEntries) * 100 : 0
@@ -106,7 +106,7 @@ const Traffic: React.FC = () => {
           color: "#484848",
           marginLeft: "0.8rem",
           marginTop: "0.5rem",
-          marginBottom: "0.5rem",
+          marginBottom: "1rem",
           width: "10rem",
           height: "2.5rem",
         }}

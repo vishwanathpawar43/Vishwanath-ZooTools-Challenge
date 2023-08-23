@@ -18,7 +18,7 @@ const Leaderboard: React.FC = () => {
         borderRadius: "0.5rem",
       }}
       elevation={0}
-      className="w-[85vmin]  mb-14 p-4 border-t-[0.2rem] border-opacity-30 border-gray-100 border-l-[0.4rem]"
+      className="w-full md0:w-[75vw] lg1:w-[41vw] lg1:h-[65vh] xl:h-auto mb-14 p-4 border-t-[0.2rem] border-opacity-30 border-gray-100 border-l-[0.4rem]"
     >
       <Box className="p-4">
         <h1 className="text-2xl font-[800] tracking-tight">User Leaderboard</h1>
@@ -65,13 +65,11 @@ const Leaderboard: React.FC = () => {
           color: "#484848",
           marginLeft: "0.8rem",
           marginTop: "0.5rem",
-          marginBottom: "0.5rem",
+          marginBottom: "1rem",
           width: "10rem",
           height: "2.5rem",
         }}
       >
-        
-
         <Box>
           <p className="text-base font-[700] normal-case tracking-tight">
             See Leaderboard
